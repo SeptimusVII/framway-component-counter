@@ -1,0 +1,110 @@
+.counter{
+	text-align: center; 
+	margin-bottom: var(--spacing);
+	each(#colors(),{
+	    .color--@{key}{
+	        .counter__icon,
+	        .counter__value,
+	        .counter__unit{color:@value;}
+	    }
+	})
+}
+.counter__icon{font-size: 3em;line-height: 1;}
+.counter__value{
+	font-size: 2.5em;
+}
+.counter__unit{font-size: 1.8em; font-weight: 400;}
+.counter__label{font-size: 1em;font-weight: 400; margin-top: 0.5em;}
+
+
+// TOO SOON
+
+// :root{
+// 	--counter-trs-duration: 5s;
+// 	--counter-trs-delay: 0s;
+// 	--counter-end: 71.5881;
+// 	--counter-fill-mode: forwards;
+// 	--counter-start: 0;
+// 	--counter-display: var(--counter-start);
+// 	--counter-decimal-nb: 2;
+// 	--counter-decimal-separator: ',';
+// }
+
+// @property --counter-display {
+//   inherits: false;
+//   initial-value: 0;
+//   syntax: '<number>';
+// }
+// @property --counter-display-int {
+//   inherits: false;
+//   initial-value: 0;
+//   syntax: '<integer>';
+// }
+// @property --counter-display-dec {
+//   inherits: false;
+//   initial-value: 0;
+//   syntax: '<integer>';
+// }
+
+// @counter-style decimal-custom {
+// 	system: extends decimal;
+// 	pad: 0 '0';
+// }
+
+// .counter{
+// 	// counter-reset: counter-display var(--counter-display);
+// 	// animation: count steps(var(--counter-end));
+	
+//   	// transition: --counter-end 1s;
+//   	// --counter-display-int: max(calc(var(--counter-end) - 0.5), 0);
+//   	// --counter-display-dec: max(calc((var(--counter-end) - var(--counter-display-int)) * 100 - 0.5), 0);
+// 	// --counter-display-int: 54;
+// 	counter-reset: int var(--counter-display-int,0) dec var(--counter-display-dec,0);
+// 	animation: count-decimal;
+
+// 	animation-delay: var(--counter-trs-delay);
+// 	animation-duration: var(--counter-trs-duration);
+// 	animation-fill-mode: var(--counter-fill-mode);
+// 	animation-play-state: var(--counter-state, running);
+//     animation-timing-function: var(--counter-animation-function, ease-out);
+	
+
+// 	text-align: center; 
+// 	margin-bottom: var(--spacing);
+// 	each(#colors(),{
+// 	    .color--@{key}{
+// 	        .counter__icon,
+// 	        .counter__value,
+// 	        .counter__unit{color:@value;}
+// 	    }
+// 	})
+// 	&.running{
+// 		--counter-state: running;
+// 	}
+// }
+// .counter__icon{font-size: 3em;line-height: 1;}
+// .counter__value{
+// 	font-size: 2.5em;
+// 	&:after{
+// 		// content: counter(counter-display);
+// 		content: counter(int) var(--counter-decimal-separator) counter(dec,decimal-custom);
+// 	}
+// }
+// .counter__unit{font-size: 1.8em; font-weight: 400;}
+// .counter__label{font-size: 1em;font-weight: 400; margin-top: 0.5em;}
+
+
+// @keyframes count-decimal {
+//   	to {
+// 		--counter-display-int: calc(var(--counter-end) - 0.5);
+//     	--counter-display-dec: calc((var(--counter-end) - var(--counter-display-int)) * ~"pow(10, var(--counter-decimal-nb))" - 0.5);
+//   	}
+// }
+// @keyframes count {
+// 	from {
+// 		--counter-display: var(--counter-start);
+// 	}
+//   	to {
+//     	--counter-display: var(--counter-end);
+//   	}
+// }
